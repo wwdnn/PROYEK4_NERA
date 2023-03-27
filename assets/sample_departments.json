@@ -1,0 +1,101 @@
+[
+  {
+    "id": 1,
+    "nama_department": "RisetDikti",
+    "pengurus_department": [
+      {
+        "nama": "Achmadya Ridwan Ilyawan",
+        "role": "Ketua Department"
+      },
+      {
+        "nama": "Arief Rahman Ahmad Husein",
+        "role": "Wakil Ketua Department"
+      }
+    ],
+    "staf_ahli": 15,
+    "staf_muda": 15,
+    "kegiatan_department": [
+      {
+        "nama_kegiatan": "Mapres",
+        "ketua_pelaksana": "Wildan Setya Nugraha",
+        "progres_kegiatan": 40
+      },
+      {
+        "nama_kegiatan": "Sparkling Hustle",
+        "ketua_pelaksana": "Wildan Setya Nugraha",
+        "progres_kegiatan": 80
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "nama_department": "PSDA",
+    "pengurus_department": [
+      {
+        "nama": "Arief Rahman Ahmad Husein",
+        "role": "Ketua Department"
+      },
+      {
+        "nama": "Arief Rahman Ahmad Husein",
+        "role": "Wakil Ketua Department"
+      }
+    ],
+    "staf_ahli": 15,
+    "staf_muda": 15,
+    "kegiatan_department": [
+      {
+        "nama_kegiatan": "Sparkling Hustle",
+        "ketua_pelaksana": "Wildan Setya Nugraha",
+        "progres_kegiatan": 40
+      },
+      {
+        "nama_kegiatan": "Sparkling Hustle",
+        "ketua_pelaksana": "Wildan Setya Nugraha",
+        "progres_kegiatan": 80
+      },
+      {
+        "nama_kegiatan": "Sparkling Hustle",
+        "ketua_pelaksana": "Wildan Setya Nugraha",
+        "progres_kegiatan": 80
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "nama_department": "ROHIS",
+    "pengurus_department": [
+      {
+        "nama": "Fahmi Ahmad Fadillah",
+        "role": "Ketua Department"
+      },
+      {
+        "nama": "Arief Rahman Ahmad Husein",
+        "role": "Wakil Ketua Department"
+      }
+    ],
+    "staf_ahli": 15,
+    "staf_muda": 15,
+    "kegiatan_department": [
+      {
+        "nama_kegiatan": "Sparkling Hustle",
+        "ketua_pelaksana": "Wildan Setya Nugraha",
+        "progres_kegiatan": 40
+      },
+      {
+        "nama_kegiatan": "Sparkling Hustle",
+        "ketua_pelaksana": "Wildan Setya Nugraha",
+        "progres_kegiatan": 80
+      },
+      {
+        "nama_kegiatan": "Sparkling Hustle",
+        "ketua_pelaksana": "Wildan Setya Nugraha",
+        "progres_kegiatan": 80
+      },
+      {
+        "nama_kegiatan": "Sparkling Hustle",
+        "ketua_pelaksana": "Wildan Setya Nugraha",
+        "progres_kegiatan": 80
+      }
+    ]
+  }
+]

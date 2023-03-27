@@ -1,8 +1,9 @@
 // ignore: file_names
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-import 'package:proyek4_nera/app/modules/departemen/views/departemen_view.dart';
-import 'package:proyek4_nera/app/modules/home/views/home_view.dart';
+
+import '../pages/departments_view.dart';
+import '../pages/home_view.dart';
 
 class BasePage extends StatefulWidget {
   const BasePage({Key? key}) : super(key: key);
@@ -20,9 +21,9 @@ class _BasePageState extends State<BasePage> {
         bottomNavigationBar: CurvedNavigationBar(
           index: index,
           color: Color.fromARGB(255, 255, 255, 255),
-          backgroundColor: Color(0xFF345FB4),
-          buttonBackgroundColor: Color.fromARGB(255, 255, 255, 255),
-          animationDuration: const Duration(milliseconds: 500),
+          backgroundColor: Colors.white,
+          buttonBackgroundColor: Colors.white,
+          animationDuration: const Duration(milliseconds: 700),
           height: 65,
           items: <Widget>[
             Icon(
@@ -61,13 +62,13 @@ Widget getSelectedWidget({required int index}) {
   Widget widget;
   switch (index) {
     case 0:
-      widget = HomeView();
+      widget = HomeV();
       break;
     case 1:
-      widget = DepartemenView();
+      widget = DepartmentsView();
       break;
     default:
-      widget = HomeView();
+      widget = HomeV();
       break;
   }
   return widget;
