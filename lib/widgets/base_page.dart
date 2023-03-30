@@ -4,6 +4,7 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 
 import '../pages/departments_view.dart';
 import '../pages/home_view.dart';
+import '../pages/profile_view.dart';
 
 class BasePage extends StatefulWidget {
   const BasePage({Key? key}) : super(key: key);
@@ -66,6 +67,15 @@ Widget getSelectedWidget({required int index}) {
       break;
     case 1:
       widget = DepartmentsView();
+      break;
+    case 2:
+      widget = HomeV();
+      break;
+    case 3:
+      widget = HomeV();
+      break;
+    case 4:
+      widget = ProfileView();
       break;
     default:
       widget = HomeV();
