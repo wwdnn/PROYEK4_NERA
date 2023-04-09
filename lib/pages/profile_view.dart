@@ -1,5 +1,6 @@
 import "package:get/get.dart";
 import 'package:flutter/material.dart';
+import 'package:proyek4_nera/routes/app_routes.dart';
 
 import '../controllers/profile_controller.dart';
 
@@ -116,17 +117,33 @@ class ProfileView extends GetView<ProfileController> {
                     color: Color.fromARGB(255, 255, 255, 255),
                   ),
                   child: ListTile(
-                    leading:
-                        Image.asset('assets/logo/menuProfile${index + 1}.png'),
-                    title: Text(
-                      // ignore: unnecessary_string_interpolations
-                      '${profileC.menuProfile[index]}',
-                      style:
-                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                    ),
-                    trailing: Icon(Icons.arrow_forward_ios,
-                        size: 15, color: Colors.black),
-                  ),
+                      leading: Image.asset(
+                          'assets/logo/menuProfile${index + 1}.png'),
+                      title: Text(
+                        // ignore: unnecessary_string_interpolations
+                        '${profileC.menuProfile[index]}',
+                        style: TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.bold),
+                      ),
+                      trailing: Icon(Icons.arrow_forward_ios,
+                          size: 15, color: Colors.black),
+                      // tap to navigate
+                      onTap: () {
+                        // switch case
+                        switch (index) {
+                          case 0:
+                            Get.toNamed(RouteName.changePassword);
+                            break;
+                          case 1:
+                            Get.toNamed(RouteName.tanyaNera);
+                            break;
+                          case 2:
+                            print('tap menu 3');
+                            break;
+                          default:
+                            break;
+                        }
+                      }),
                 );
               },
               childCount: profileC.menuProfile.length,
