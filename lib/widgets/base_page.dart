@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 
 import '../pages/departments_view.dart';
+import '../pages/events_view.dart';
 import '../pages/home_view.dart';
 import '../pages/profile_view.dart';
 
@@ -72,7 +73,7 @@ Widget getSelectedWidget({required int index}) {
       widget = HomeV();
       break;
     case 3:
-      widget = HomeV();
+      widget = EventsView();
       break;
     case 4:
       widget = ProfileView();

@@ -34,6 +34,13 @@ class ChangePassView extends GetView {
               child: Container(
                 decoration: BoxDecoration(
                   color: Colors.white,
+                  image: DecorationImage(
+                    image: MediaQuery.of(context).viewInsets.bottom == 0
+                        ? AssetImage("assets/logo/vector_bg.png")
+                        : AssetImage(""),
+                    fit: BoxFit.fitWidth,
+                    alignment: Alignment.bottomCenter,
+                  ),
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(30),
                     topRight: Radius.circular(30),
@@ -96,8 +103,7 @@ class ChangePassView extends GetView {
                               borderRadius: BorderRadius.circular(20),
                             ),
                             enabledBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                  color: Color.fromARGB(255, 0, 0, 0)),
+                              borderSide: BorderSide(color: Color(0xFF345FB4)),
                               borderRadius: BorderRadius.circular(20),
                             ),
                           ),
@@ -118,12 +124,11 @@ class ChangePassView extends GetView {
                           ),
                         ),
                       ),
-                      SizedBox(height: 20),
                     ],
                   ),
                 ),
               ),
-            ),
+            )
           ],
         ),
       ),

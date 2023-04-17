@@ -10,6 +10,7 @@ import '../bindings/profile_binding.dart';
 // Import View
 import '../pages/auth/changePass_view.dart';
 import '../pages/departments_view.dart';
+import '../pages/events_view.dart';
 import '../pages/home_view.dart';
 import '../pages/profile_view.dart';
 import '../pages/tanyaNera_view.dart';
@@ -23,6 +24,7 @@ class AppPages {
         name: RouteName.departments,
         page: () => DepartmentsView(),
         binding: DepartementsBinding()),
+    GetPage(name: RouteName.events, page: () => EventsView()),
     GetPage(
         name: RouteName.profile,
         page: () => ProfileView(),
