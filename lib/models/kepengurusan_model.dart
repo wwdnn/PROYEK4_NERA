@@ -1,57 +1,53 @@
 // To parse this JSON data, do
 //
-//     final kepengurusanM = kepengurusanMFromJson(jsonString);
+//     final kepengurusanModel = kepengurusanModelFromJson(jsonString);
 
 import 'dart:convert';
 
-KepengurusanM kepengurusanMFromJson(String str) => KepengurusanM.fromJson(json.decode(str));
+KepengurusanModel kepengurusanModelFromJson(String str) => KepengurusanModel.fromJson(json.decode(str));
 
-String kepengurusanMToJson(KepengurusanM data) => json.encode(data.toJson());
+String kepengurusanModelToJson(KepengurusanModel data) => json.encode(data.toJson());
 
-class KepengurusanM {
-    KepengurusanM({
-        required this.users,
+class KepengurusanModel {
+    KepengurusanModel({
+        required this.status,
+        required this.data,
     });
 
-    Map<String, User> users;
+    String status;
+    List<Datum> data;
 
-    factory KepengurusanM.fromJson(Map<String, dynamic> json) => KepengurusanM(
-        users: Map.from(json["users"]).map((k, v) => MapEntry<String, User>(k, User.fromJson(v))),
+    factory KepengurusanModel.fromJson(Map<String, dynamic> json) => KepengurusanModel(
+        status: json["status"],
+        data: List<Datum>.from(json["data"].map((x) => Datum.fromJson(x))),
     );
 
     Map<String, dynamic> toJson() => {
-        "users": Map.from(users).map((k, v) => MapEntry<String, dynamic>(k, v.toJson())),
+        "status": status,
+        "data": List<dynamic>.from(data.map((x) => x.toJson())),
     };
 }
 
-class User {
-    User({
-        required this.nim,
+class Datum {
+    Datum({
         required this.name,
         required this.role,
         required this.avatar,
-        required this.status,
     });
 
-    String nim;
     String name;
     String role;
     String avatar;
-    String status;
 
-    factory User.fromJson(Map<String, dynamic> json) => User(
-        nim: json["nim"],
+    factory Datum.fromJson(Map<String, dynamic> json) => Datum(
         name: json["name"],
         role: json["role"],
         avatar: json["avatar"],
-        status: json["status"],
     );
 
     Map<String, dynamic> toJson() => {
-        "nim": nim,
         "name": name,
         "role": role,
         "avatar": avatar,
-        "status": status,
     };
 }

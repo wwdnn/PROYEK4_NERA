@@ -4,7 +4,8 @@ import 'package:get/get.dart';
 import '../providers/kepengurusan_provider.dart';
 
 class HomeC extends GetxController {
-  RxMap<dynamic, dynamic> kepengurusanData = {}.obs;
+  RxList<dynamic> kepengurusanData = [].obs;
+  RxList<dynamic> kabinetData = [].obs;
 
   @override
   void onInit() {
@@ -13,15 +14,16 @@ class HomeC extends GetxController {
   }
 
   @override
-  void onClose() {
-    
-  }
+  void onClose() {}
 
   Future<void> getKepengurusan() async {
     kepengurusanData.clear();
     await Future.delayed(Duration(seconds: 1));
     KepengurusanP().getKepengurusan().then((value) {
-      kepengurusanData.assignAll(value.body['users']);
+      kepengurusanData.assignAll(value['data']);
+    });
+    KepengurusanP().getKabinet().then((value) {
+      kabinetData.assignAll(value['data']);
     });
     update();
   }

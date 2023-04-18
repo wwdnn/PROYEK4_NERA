@@ -1,6 +1,5 @@
 import 'package:get/get.dart';
 
-import '../models/departments_model.dart';
 import '../providers/departments_provider.dart';
 
 class DepartmentsController extends GetxController {
@@ -17,7 +16,7 @@ class DepartmentsController extends GetxController {
   Future<void> getData() async {
     await Future.delayed(Duration(seconds: 1));
     DepartmentsProvider().getDepartments().then((value) {
-      departmentsData.assignAll(value);
+      departmentsData.assignAll(value['data']);
     });
     update();
   }

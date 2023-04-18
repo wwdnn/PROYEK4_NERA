@@ -15,9 +15,7 @@ class DepartmentsView extends GetView<DepartmentsController> {
         child: controller.departmentsData.isEmpty
             ?
             // Loading menunggu data controller.departmentsData tidak kosong lagi
-            Center(child: CircularProgressIndicator(
-              
-            ))
+            Center(child: CircularProgressIndicator())
             : SlidingUpPanel(
                 maxHeight: Get.height * 0.5,
                 minHeight: Get.height * 0.3,
@@ -34,10 +32,10 @@ class DepartmentsView extends GetView<DepartmentsController> {
                             children: [
                               Container(
                                 height: 210,
-                                child: Image.asset(
-                                  'assets/logo/pp_${index + 1}.png',
-                                  fit: BoxFit.cover,
-                                ),
+                                child: Image.network(
+                                    controller.departmentsData[index]['users']
+                                        [0]['avatar'],
+                                    fit: BoxFit.cover),
                               ),
                               Container(
                                 padding: EdgeInsets.only(top: 150),
@@ -66,7 +64,8 @@ class DepartmentsView extends GetView<DepartmentsController> {
                                       Container(
                                         padding: EdgeInsets.only(bottom: 3),
                                         child: Text(
-                                          "${controller.departmentsData[index].pengurusDepartment[0].nama}",
+                                          controller.departmentsData[index]
+                                              ['users'][0]['name'],
                                           style: TextStyle(
                                             fontSize: 16,
                                             fontWeight: FontWeight.bold,
@@ -76,7 +75,8 @@ class DepartmentsView extends GetView<DepartmentsController> {
                                       ),
                                       Container(
                                         child: Text(
-                                          '${controller.departmentsData[index].pengurusDepartment[0].role} ${controller.departmentsData[index].namaDepartment}',
+                                          controller.departmentsData[index]
+                                              ['users'][0]['role'],
                                           style: TextStyle(
                                             fontSize: 14,
                                             color: Colors.grey,
@@ -90,7 +90,7 @@ class DepartmentsView extends GetView<DepartmentsController> {
                             ],
                           ));
                     },
-                    itemCount: 3,
+                    itemCount: controller.departmentsData.length,
                     onPageChanged: (index) {
                       controller.currentIndex.value = index;
                     }),
@@ -147,7 +147,8 @@ class DepartmentsView extends GetView<DepartmentsController> {
                                     'assets/logo/department_${controller.currentIndex.value + 1}.png'),
                               ),
                               Text(
-                                "${controller.departmentsData[controller.currentIndex.value].namaDepartment}",
+                                controller.departmentsData[
+                                    controller.currentIndex.value]['name'],
                                 style: TextStyle(
                                   fontSize: 25,
                                   fontWeight: FontWeight.bold,
@@ -220,7 +221,7 @@ class DepartmentsView extends GetView<DepartmentsController> {
                                   Container(
                                     margin: EdgeInsets.only(left: 10),
                                     child: Text(
-                                      "${controller.departmentsData[controller.currentIndex.value].kegiatanDepartment[index].namaKegiatan}",
+                                      '2',
                                       style: TextStyle(
                                         fontSize: 20,
                                         fontWeight: FontWeight.bold,
@@ -231,7 +232,7 @@ class DepartmentsView extends GetView<DepartmentsController> {
                                   Container(
                                     margin: EdgeInsets.only(left: 10, top: 5),
                                     child: Text(
-                                      "${controller.departmentsData[controller.currentIndex.value].kegiatanDepartment[index].ketuaPelaksana}",
+                                      '2',
                                       style: TextStyle(
                                         fontSize: 15,
                                         color: Colors.black,
@@ -248,14 +249,8 @@ class DepartmentsView extends GetView<DepartmentsController> {
                                       animation: true,
                                       lineHeight: 15.0,
                                       animationDuration: 2000,
-                                      percent: controller
-                                              .departmentsData[
-                                                  controller.currentIndex.value]
-                                              .kegiatanDepartment[index]
-                                              .progresKegiatan /
-                                          100,
-                                      center: Text(
-                                          "${controller.departmentsData[controller.currentIndex.value].kegiatanDepartment[index].progresKegiatan}%"),
+                                      percent: 10,
+                                      center: Text('2'),
                                       barRadius: Radius.circular(20),
                                       progressColor:
                                           Color.fromARGB(255, 0, 226, 50),
@@ -265,10 +260,7 @@ class DepartmentsView extends GetView<DepartmentsController> {
                               ),
                             );
                           },
-                          itemCount: controller
-                              .departmentsData[controller.currentIndex.value]
-                              .kegiatanDepartment
-                              .length,
+                          itemCount: 3,
                         ),
                       ],
                     ),
