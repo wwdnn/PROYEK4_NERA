@@ -5,7 +5,8 @@ import '../models/events_model.dart';
 
 class EventsController extends GetxController {
   Rx<EventsModel> events = EventsModel(status: '', data: []).obs;
-  RxList<dynamic> filterData = [].obs;
+  RxList<dynamic> filterDataType = [].obs;
+  RxList<dynamic> filterDataDate = [].obs;
   String? selectedValue;
 
   @override
@@ -21,19 +22,32 @@ class EventsController extends GetxController {
     await Future.delayed(Duration(seconds: 1));
     EventsProvider().getEvents().then((value) {
       events.value = value;
-      // print(value.data[0].name);
+      filterDataByDate(DateTime.now());
+      filterDataByType('Semua');
     });
     update();
   }
 
   // Filter data berdasarkan value dari dropdown
-  void filterDataByValue(String value) {
+  void filterDataByType(String value) {
     if (value == 'Semua') {
-      filterData.assignAll(events.value.data);
+      filterDataType.assignAll(events.value.data);
     } else {
-      filterData.assignAll(
+      filterDataType.assignAll(
           events.value.data.where((element) => element.type == value).toList());
     }
+    update();
+  }
+
+  // Filter data berdasarkan value dari datepicker
+  void filterDataByDate(DateTime value) {
+    // parse date to string
+    String date = value.toString().substring(0, 10);
+    filterDataDate.assignAll(events.value.data
+        .where((element) =>
+            element.date.toString().substring(0, 10) == date &&
+            element.type != 'Pekerjaan')
+        .toList());
     update();
   }
 }

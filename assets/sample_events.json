@@ -5,7 +5,7 @@
       "poster": "http://192.168.100.31:8000/storage/cabinets/events/poster/2023-04-17-05-20-13_Ryan Berg.png",
       "name": "Kumpul Rutin",
       "description": "Kumpul Rutin Himpunan berdiskusi terkait proker",
-      "date": "2023-04-19T22:15:00Z",
+      "date": "2023-04-19",
       "location": "Taman JTK",
       "type": "Kegiatan"
     },
@@ -13,7 +13,7 @@
       "poster": "http://192.168.100.31:8000/storage/cabinets/events/poster/2023-04-17-05-20-13_Ryan Berg.png",
       "name": "Sparkling Hustle",
       "description": "Proker Riset Dikti",
-      "date": "2023-04-20T22:15:00Z",
+      "date": "2023-04-20",
       "location": "Zoom Meeting",
       "type": "Proker"
     },
@@ -21,7 +21,7 @@
       "poster": "http://192.168.100.31:8000/storage/cabinets/events/poster/2023-04-17-05-20-13_Ryan Berg.png",
       "name": "Kerja Part Time Web Developer",
       "description": "Part Time Web Developer spesifikasi PHP, CI4, GIT, GITHUB",
-      "date": "2023-04-21T22:15:00Z",
+      "date": "2023-04-21",
       "location": "PT Anumerta",
       "type": "Pekerjaan"
     }
