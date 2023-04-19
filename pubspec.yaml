@@ -30,4 +30,5 @@ flutter:
   assets:
     - assets/logo/
     - assets/sample_departments.json
+    - assets/sample_events.json
 

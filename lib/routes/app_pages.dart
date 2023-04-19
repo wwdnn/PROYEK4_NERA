@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 
 // Import Binding
 import '../bindings/departments_binding.dart';
+import '../bindings/events_binding.dart';
 import '../bindings/home_binding.dart';
 import '../bindings/profile_binding.dart';
 
@@ -24,7 +25,10 @@ class AppPages {
         name: RouteName.departments,
         page: () => DepartmentsView(),
         binding: DepartementsBinding()),
-    GetPage(name: RouteName.events, page: () => EventsView()),
+    GetPage(
+        name: RouteName.events,
+        page: () => EventsView(),
+        binding: EventsBinding()),
     GetPage(
         name: RouteName.profile,
         page: () => ProfileView(),

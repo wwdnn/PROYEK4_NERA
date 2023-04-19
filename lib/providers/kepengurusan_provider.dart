@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:proyek4_nera/models/kepengurusan_model.dart';
+// import 'package:proyek4_nera/models/kepengurusan_model.dart';
 
 import '../utils/base_url.dart';
 
