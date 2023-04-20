@@ -6,5 +6,6 @@ abstract class RouteName {
   static const String tanyaNera = '/tanya-nera';
   
   // Auth
+  static const String login = '/login';
   static const String changePassword = '/change-password';
 }

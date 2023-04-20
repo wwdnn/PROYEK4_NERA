@@ -9,6 +9,7 @@ import '../bindings/home_binding.dart';
 import '../bindings/profile_binding.dart';
 
 // Import View
+import '../pages/auth/auth_view.dart';
 import '../pages/auth/changePass_view.dart';
 import '../pages/departments_view.dart';
 import '../pages/events_view.dart';
@@ -33,6 +34,11 @@ class AppPages {
         name: RouteName.profile,
         page: () => ProfileView(),
         binding: ProfileBinding()),
+    GetPage(
+      name: RouteName.login,
+      page: () => AuthView(),
+      binding: ProfileBinding(),
+    ),
     GetPage(
       name: RouteName.changePassword,
       page: () => ChangePassView(),

@@ -18,6 +18,7 @@ dependencies:
   sliding_up_panel: ^2.0.0+1
   percent_indicator: ^4.0.1
   date_picker_timeline: ^1.2.3
+  animated_text_kit: ^4.2.2
 
 dev_dependencies: 
   flutter_lints: ^2.0.0
