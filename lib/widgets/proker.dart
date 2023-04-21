@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
-Widget Proker() {
+Widget Proker(ScrollController controller) {
   return Container(
     decoration: BoxDecoration(
       borderRadius: BorderRadius.only(
@@ -29,6 +30,8 @@ Widget Proker() {
           ),
         ),
         ListView.builder(
+          controller: controller,
+          itemCount: 10,
           itemBuilder: (context, index) {
             return Container(
               alignment: Alignment.centerLeft,
@@ -54,10 +57,10 @@ Widget Proker() {
                     margin: EdgeInsets.only(left: 10),
                     child: Text(
                       '2',
-                      style: TextStyle(
+                      style: GoogleFonts.poppins(
                         fontSize: 20,
+                        color: Color.fromARGB(255, 0, 0, 0),
                         fontWeight: FontWeight.bold,
-                        color: Colors.black,
                       ),
                     ),
                   ),
@@ -65,9 +68,9 @@ Widget Proker() {
                     margin: EdgeInsets.only(left: 10, top: 5),
                     child: Text(
                       '2',
-                      style: TextStyle(
-                        fontSize: 15,
-                        color: Colors.black,
+                      style: GoogleFonts.poppins(
+                        fontSize: 16,
+                        color: Color.fromARGB(255, 0, 0, 0),
                       ),
                     ),
                   ),
@@ -75,7 +78,6 @@ Widget Proker() {
               ),
             );
           },
-          itemCount: 3,
         ),
       ],
     ),

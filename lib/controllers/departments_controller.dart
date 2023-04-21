@@ -17,6 +17,7 @@ class DepartmentsController extends GetxController {
     await Future.delayed(Duration(seconds: 1));
     DepartmentsProvider().getDepartments().then((value) {
       departmentsData.assignAll(value['data']);
+      // print(value['data'][0]['users']);
     });
     update();
   }

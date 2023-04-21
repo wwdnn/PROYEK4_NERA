@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 Widget Departments(String logo, String name) {
   return Container(
@@ -43,20 +44,27 @@ Widget Departments(String logo, String name) {
                 ),
               ],
             ),
-            padding: EdgeInsets.all(10),
             child: Row(
               children: [
-                Container(
-                    margin: EdgeInsets.only(right: 10),
-                    child: Image.network(
-                      logo,
-                    )),
-                Text(
-                  name,
-                  style: TextStyle(
-                    fontSize: 25,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black,
+                Expanded(
+                  flex: 4,
+                  child: Container(
+                    margin: EdgeInsets.only(left: 10),
+                    child: Image.network(logo),
+                  ),
+                ),
+                Expanded(
+                  flex: 6,
+                  child: Container(
+                    child: Text(
+                      name,
+                      style: GoogleFonts.poppins(
+                        fontSize: 30,
+                        color: Color.fromARGB(255, 0, 0, 0),
+                        fontWeight: FontWeight.bold,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
                   ),
                 ),
               ],
