@@ -1,4 +1,3 @@
-import "package:flutter/services.dart";
 import "package:get/get.dart";
 import "package:flutter/material.dart";
 import "package:google_fonts/google_fonts.dart";
@@ -15,10 +14,13 @@ class AuthView extends GetView<ProfileController> {
           height: Get.height,
           decoration: BoxDecoration(
             color: Color(0xFF345FB4),
+            image: DecorationImage(
+              image: AssetImage("assets/logo/background_pattern.png"),
+              fit: BoxFit.cover,
+              opacity: 0.2,
+            ),
           ),
           child: Stack(
-            // // position bottom
-            // alignment: Alignment.bottomCenter,
             children: [
               Container(
                 width: Get.width,
@@ -37,15 +39,15 @@ class AuthView extends GetView<ProfileController> {
                         ),
                       ),
                       SizedBox(
-                        height: 10,
+                        height: 5,
                       ),
                       Container(
                         child: AnimatedTextKit(
                           animatedTexts: [
                             WavyAnimatedText(
                               "HIMAKOM",
-                              textStyle: TextStyle(
-                                fontSize: 40,
+                              textStyle: GoogleFonts.poppins(
+                                fontSize: 30,
                                 fontWeight: FontWeight.bold,
                                 color: Colors.white,
                               ),
@@ -80,24 +82,20 @@ class AuthView extends GetView<ProfileController> {
                       Container(
                         margin: EdgeInsets.only(top: 10, left: 20, right: 20),
                         child: TextField(
+                          controller: profileC.emailController,
                           decoration: InputDecoration(
-                            labelText: "NIM",
+                            labelText: "Email",
                             labelStyle: GoogleFonts.poppins(
                               fontSize: 15,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
-                          keyboardType: TextInputType
-                              .number, // menampilkan keyboard numerik
-                          inputFormatters: [
-                            FilteringTextInputFormatter
-                                .digitsOnly, // membatasi input hanya boleh angka
-                          ],
                         ),
                       ),
                       Container(
                         margin: EdgeInsets.only(top: 20, left: 20, right: 20),
                         child: TextField(
+                          controller: profileC.passwordController,
                           decoration: InputDecoration(
                             labelText: "Password",
                             labelStyle: GoogleFonts.poppins(
@@ -122,7 +120,12 @@ class AuthView extends GetView<ProfileController> {
                       Container(
                         margin: EdgeInsets.only(top: 20, left: 20, right: 20),
                         child: ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            profileC.login(
+                                context,
+                                profileC.emailController.text,
+                                profileC.passwordController.text);
+                          },
                           style: ButtonStyle(
                             backgroundColor: MaterialStateProperty.all(
                               Color(0xFF345FB4),

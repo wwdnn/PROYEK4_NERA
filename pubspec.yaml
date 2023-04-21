@@ -19,6 +19,7 @@ dependencies:
   percent_indicator: ^4.0.1
   date_picker_timeline: ^1.2.3
   animated_text_kit: ^4.2.2
+  top_snackbar_flutter: ^3.0.0+1
 
 dev_dependencies: 
   flutter_lints: ^2.0.0
@@ -32,4 +33,5 @@ flutter:
     - assets/logo/
     - assets/sample_departments.json
     - assets/sample_events.json
+    - assets/sample_auth.json
 

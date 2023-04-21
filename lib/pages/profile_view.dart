@@ -138,7 +138,7 @@ class ProfileView extends GetView<ProfileController> {
                             Get.toNamed(RouteName.tanyaNera);
                             break;
                           case 2:
-                            print('tap menu 3');
+                            profileC.logout();
                             break;
                           default:
                             break;
