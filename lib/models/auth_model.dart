@@ -1,50 +1,85 @@
 // To parse this JSON data, do
 //
-//     final eventsModel = eventsModelFromJson(jsonString);
+//     final authModel = authModelFromJson(jsonString);
 
 import 'dart:convert';
 
-EventsModel eventsModelFromJson(String str) =>
-    EventsModel.fromJson(json.decode(str));
+AuthModel authModelFromJson(String str) => AuthModel.fromJson(json.decode(str));
 
-String eventsModelToJson(EventsModel data) => json.encode(data.toJson());
+String authModelToJson(AuthModel data) => json.encode(data.toJson());
 
-class EventsModel {
-  EventsModel({
-    required this.status,
-    required this.data,
-  });
+class AuthModel {
+    AuthModel({
+        required this.user,
+        required this.accessToken,
+    });
 
-  String status;
-  List<Datum> data;
+    User user;
+    String accessToken;
 
-  factory EventsModel.fromJson(Map<String, dynamic> json) => EventsModel(
-        status: json["status"],
-        data: List<Datum>.from(json["data"].map((x) => Datum.fromJson(x))),
-      );
+    factory AuthModel.fromJson(Map<String, dynamic> json) => AuthModel(
+        user: User.fromJson(json["user"]),
+        accessToken: json["access_token"],
+    );
 
-  Map<String, dynamic> toJson() => {
-        "status": status,
-        "data": List<dynamic>.from(data.map((x) => x.toJson())),
-      };
+    Map<String, dynamic> toJson() => {
+        "user": user.toJson(),
+        "access_token": accessToken,
+    };
 }
 
-class Datum {
-  Datum({
-    required this.email,
-    required this.password,
-  });
+class User {
+    User({
+        required this.id,
+        required this.nim,
+        required this.na,
+        required this.namaBagus,
+        required this.avatar,
+        required this.email,
+        required this.name,
+        required this.year,
+        this.emailVerifiedAt,
+        required this.createdAt,
+        required this.updatedAt,
+    });
 
-  String email;
-  String password;
+    int id;
+    String nim;
+    String na;
+    String namaBagus;
+    String avatar;
+    String email;
+    String name;
+    String year;
+    dynamic emailVerifiedAt;
+    DateTime createdAt;
+    DateTime updatedAt;
 
-  factory Datum.fromJson(Map<String, dynamic> json) => Datum(
+    factory User.fromJson(Map<String, dynamic> json) => User(
+        id: json["id"],
+        nim: json["nim"],
+        na: json["na"],
+        namaBagus: json["nama_bagus"],
+        avatar: json["avatar"],
         email: json["email"],
-        password: json["password"],
-      );
+        name: json["name"],
+        year: json["year"],
+        emailVerifiedAt: json["email_verified_at"],
+        createdAt: DateTime.parse(json["created_at"]),
+        updatedAt: DateTime.parse(json["updated_at"]),
+    );
 
-  Map<String, dynamic> toJson() => {
+    Map<String, dynamic> toJson() => {
+        "id": id,
+        "nim": nim,
+        "na": na,
+        "nama_bagus": namaBagus,
+        "avatar": avatar,
         "email": email,
-        "password": password,
-      };
+        "name": name,
+        "year": year,
+        "email_verified_at": emailVerifiedAt,
+        "created_at": createdAt.toIso8601String(),
+        "updated_at": updatedAt.toIso8601String(),
+    };
 }

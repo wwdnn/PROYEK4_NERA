@@ -6,6 +6,7 @@ import 'package:proyek4_nera/routes/app_routes.dart';
 
 import '../controllers/home_controller.dart';
 
+import '../controllers/profile_controller.dart';
 import '../widgets/badge_notif.dart';
 import '../widgets/pengurus.dart';
 import '../widgets/drawclip.dart';
@@ -16,13 +17,16 @@ class HomeV extends GetView<HomeC> {
   @override
   Widget build(BuildContext context) {
     final homeC = Get.put(HomeC());
+    final profileC = Get.put(ProfileController());
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Color(0xFF345FB4),
           automaticallyImplyLeading: false,
           toolbarHeight: 80,
           elevation: 2,
-          title: ProfileAppbar(),
+          title: ProfileAppbar(
+            user: profileC.auth.value.user,
+          ),
           actions: [
             Container(
               alignment: Alignment.center,
@@ -39,7 +43,7 @@ class HomeV extends GetView<HomeC> {
         body: Obx(() {
           return RefreshIndicator(
             onRefresh: homeC.getKepengurusan,
-            child: homeC.kabinetData.isEmpty
+            child: homeC.kabinet.value.data.isEmpty
                 ? Center(child: CircularProgressIndicator())
                 : ListView(children: [
                     ClipPath(
@@ -54,13 +58,14 @@ class HomeV extends GetView<HomeC> {
                               viewportFraction: 0.5,
                               enableInfiniteScroll: false,
                             ),
-                            items: homeC.kepengurusanData.map((item) {
+                            items: homeC.kepengurusan.value.data.map((item) {
                               final index =
-                                  homeC.kepengurusanData.indexOf(item);
+                                  homeC.kepengurusan.value.data.indexOf(item);
                               return Pengurus(
-                                avatar: homeC.kepengurusanData[index]['avatar'],
-                                name: homeC.kepengurusanData[index]['name'],
-                                role: homeC.kepengurusanData[index]['role'],
+                                avatar:
+                                    homeC.kepengurusan.value.data[index].avatar,
+                                name: homeC.kepengurusan.value.data[index].name,
+                                role: homeC.kepengurusan.value.data[index].role,
                               );
                             }).toList(),
                           )),
@@ -81,9 +86,10 @@ class HomeV extends GetView<HomeC> {
                           Container(
                             margin: EdgeInsets.only(bottom: 20),
                             child: Kabinet(
-                              pathLogo: homeC.kabinetData[0]['logo'],
-                              name: homeC.kabinetData[0]['name'],
-                              description: homeC.kabinetData[0]['description'],
+                              pathLogo: homeC.kabinet.value.data[0].logo,
+                              name: homeC.kabinet.value.data[0].name,
+                              description:
+                                  homeC.kabinet.value.data[0].description,
                               context: context,
                             ),
                           ),

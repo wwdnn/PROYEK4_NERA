@@ -1,17 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:proyek4_nera/models/auth_model.dart';
 
 class ProfileAppbar extends StatelessWidget {
-  ProfileAppbar();
+  final User user;
+
+  ProfileAppbar({required this.user});
 
   @override
   Widget build(BuildContext context) {
     return Row(children: [
       // logo
       Container(
-        height: 50,
-        width: 50,
-        child: Image.asset('assets/logo/dp.png'),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(50),
+          border: Border.all(color: Colors.white, width: 2),
+        ),
+        child: ClipOval(
+          child: Container(
+            width: 40,
+            height: 40,
+            child: Image.network(
+              'http://neracietas.site/storage/${user.avatar}',
+              fit: BoxFit.cover,
+            ),
+          ),
+        ),
       ),
 
       // nama user
@@ -24,7 +38,7 @@ class ProfileAppbar extends StatelessWidget {
           children: [
             // nama user
             Text(
-              'Wildan Setya Nugraha',
+              user.name,
               style: GoogleFonts.poppins(
                 color: Colors.white,
                 fontSize: 25,
@@ -36,7 +50,7 @@ class ProfileAppbar extends StatelessWidget {
 
             // status user
             Text(
-              'Anggota',
+              user.namaBagus.toString(),
               style: GoogleFonts.poppins(
                 color: Colors.grey,
                 fontSize: 15,

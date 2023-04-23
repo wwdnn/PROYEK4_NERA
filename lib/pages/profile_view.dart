@@ -8,7 +8,7 @@ import '../controllers/profile_controller.dart';
 class ProfileView extends GetView<ProfileController> {
   @override
   Widget build(BuildContext context) {
-    final profileC = Get.put(ProfileController());
+    final profileC = Get.find<ProfileController>();
     return Scaffold(
       body: CustomScrollView(
         slivers: <Widget>[
@@ -51,8 +51,8 @@ class ProfileView extends GetView<ProfileController> {
                       children: [
                         Container(
                           margin: EdgeInsets.only(top: 10),
-                          child: Image.asset(
-                            'assets/logo/pp_3.png',
+                          child: Image.network(
+                            'http://neracietas.site/storage/${profileC.auth.value.user.avatar}',
                             width: 115,
                             height: 140,
                           ),
@@ -73,7 +73,7 @@ class ProfileView extends GetView<ProfileController> {
                               Container(
                                 margin: EdgeInsets.only(top: 10),
                                 child: Text(
-                                  'WILDAN SETYA NUGRAHA',
+                                  profileC.auth.value.user.name.toUpperCase(),
                                   style: GoogleFonts.poppins(
                                     color: Colors.white,
                                     fontSize: 20,
@@ -87,11 +87,12 @@ class ProfileView extends GetView<ProfileController> {
                               Container(
                                 margin: EdgeInsets.only(top: 1),
                                 child: Text(
-                                  '211511032',
+                                  profileC.auth.value.user.nim,
                                   style: GoogleFonts.poppins(
                                     color: Colors.white,
                                     fontSize: 15,
                                     fontWeight: FontWeight.bold,
+                                    letterSpacing: 1.5,
                                   ),
                                   overflow: TextOverflow.ellipsis,
                                   maxLines: 1,
@@ -101,7 +102,7 @@ class ProfileView extends GetView<ProfileController> {
                               Container(
                                 margin: EdgeInsets.only(top: 1),
                                 child: Text(
-                                  'IBM OS',
+                                  profileC.auth.value.user.namaBagus,
                                   style: GoogleFonts.poppins(
                                     color: Colors.white,
                                     fontSize: 15,

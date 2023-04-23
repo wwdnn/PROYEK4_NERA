@@ -1,11 +1,17 @@
 import 'package:get/get.dart';
-
-// import '../models/kepengurusan_model.dart';
+import 'package:proyek4_nera/models/kepengurusan_model.dart';
+import '../models/kabinet_model.dart';
 import '../providers/kepengurusan_provider.dart';
 
 class HomeC extends GetxController {
-  RxList<dynamic> kepengurusanData = [].obs;
-  RxList<dynamic> kabinetData = [].obs;
+  Rx<KepengurusanModel> kepengurusan = KepengurusanModel(
+    status: '',
+    data: [],
+  ).obs;
+  Rx<KabinetModel> kabinet = KabinetModel(
+    status: '',
+    data: [],
+  ).obs;
 
   @override
   void onInit() {
@@ -17,13 +23,21 @@ class HomeC extends GetxController {
   void onClose() {}
 
   Future<void> getKepengurusan() async {
-    kepengurusanData.clear();
+    // clear data
+    kepengurusan.value = KepengurusanModel(
+      status: '',
+      data: [],
+    );
+    kabinet.value = KabinetModel(
+      status: '',
+      data: [],
+    );
     await Future.delayed(Duration(seconds: 1));
     KepengurusanP().getKepengurusan().then((value) {
-      kepengurusanData.assignAll(value['data']);
+      kepengurusan.value = value;
     });
     KepengurusanP().getKabinet().then((value) {
-      kabinetData.assignAll(value['data']);
+      kabinet.value = value;
     });
     update();
   }

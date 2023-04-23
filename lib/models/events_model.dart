@@ -30,35 +30,43 @@ class EventsModel {
 
 class Datum {
     Datum({
+        required this.id,
         required this.poster,
         required this.name,
         required this.description,
         required this.date,
+        required this.time,
         required this.location,
         required this.type,
     });
 
+    int id;
     String poster;
     String name;
     String description;
     DateTime date;
+    String time;
     String location;
     String type;
 
     factory Datum.fromJson(Map<String, dynamic> json) => Datum(
+        id: json["id"],
         poster: json["poster"],
         name: json["name"],
         description: json["description"],
         date: DateTime.parse(json["date"]),
+        time: json["time"],
         location: json["location"],
         type: json["type"],
     );
 
     Map<String, dynamic> toJson() => {
+        "id": id,
         "poster": poster,
         "name": name,
         "description": description,
-        "date": date.toIso8601String(),
+        "date": "${date.year.toString().padLeft(4, '0')}-${date.month.toString().padLeft(2, '0')}-${date.day.toString().padLeft(2, '0')}",
+        "time": time,
         "location": location,
         "type": type,
     };

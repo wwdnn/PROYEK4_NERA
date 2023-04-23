@@ -46,7 +46,7 @@ class EventsController extends GetxController {
     filterDataDate.assignAll(events.value.data
         .where((element) =>
             element.date.toString().substring(0, 10) == date &&
-            element.type != 'Pekerjaan')
+            element.type != 'pekerjaan')
         .toList());
     update();
   }

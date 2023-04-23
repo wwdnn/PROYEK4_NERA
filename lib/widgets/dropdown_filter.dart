@@ -73,7 +73,7 @@ class _DropdownFilterState extends State<DropdownFilter> {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                value: 'Proker',
+                value: 'proker',
               ),
               DropdownMenuItem(
                 child: Text(
@@ -84,7 +84,18 @@ class _DropdownFilterState extends State<DropdownFilter> {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                value: 'Pekerjaan',
+                value: 'pekerjaan',
+              ),
+              DropdownMenuItem(
+                child: Text(
+                  "Lomba",
+                  style: GoogleFonts.poppins(
+                    color: Color.fromARGB(255, 0, 0, 0),
+                    fontSize: 15,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                value: 'lomba',
               ),
             ],
             onChanged: (value) {

@@ -16,35 +16,36 @@ class DepartmentsView extends GetView<DepartmentsController> {
   Widget build(BuildContext context) {
     final controller = Get.put(DepartmentsController());
     return Scaffold(
-        appBar: AppBar(
-          backgroundColor: Color(0xFF345FB4),
-          // background image
-          flexibleSpace: Container(
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage("assets/logo/background_pattern.png"),
-                fit: BoxFit.cover,
-                opacity: 0.2,
-              ),
-            ),
-          ),
-          automaticallyImplyLeading: false,
-          elevation: 0,
-          title: Center(
-            child: Text(
-              "DIVISI HIMAKOM",
-              style: GoogleFonts.poppins(
-                color: Colors.white,
-                fontSize: 30,
-                fontWeight: FontWeight.bold,
-              ),
+      appBar: AppBar(
+        backgroundColor: Color(0xFF345FB4),
+        // background image
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage("assets/logo/background_pattern.png"),
+              fit: BoxFit.cover,
+              opacity: 0.2,
             ),
           ),
         ),
-        body: Obx(() {
+        automaticallyImplyLeading: false,
+        elevation: 0,
+        title: Center(
+          child: Text(
+            "DIVISI HIMAKOM",
+            style: GoogleFonts.poppins(
+              color: Colors.white,
+              fontSize: 30,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ),
+      ),
+      body: Obx(
+        () {
           return RefreshIndicator(
             onRefresh: () => Future.delayed(Duration(seconds: 1)),
-            child: controller.departmentsData.isEmpty
+            child: controller.departments.value.data.isEmpty
                 ? Center(child: CircularProgressIndicator())
                 : SlidingUpPanel(
                     maxHeight: Get.height * 0.5,
@@ -53,7 +54,7 @@ class DepartmentsView extends GetView<DepartmentsController> {
                     parallaxOffset: 0.5,
                     color: Colors.transparent,
                     body: PageView.builder(
-                        itemCount: controller.departmentsData.length,
+                        itemCount: controller.departments.value.data.length,
                         itemBuilder: (context, index) {
                           return Container(
                               height: Get.height,
@@ -89,9 +90,8 @@ class DepartmentsView extends GetView<DepartmentsController> {
                                                   EdgeInsets.only(left: 10),
                                               child: Transform.rotate(
                                                 angle: 3.14,
-                                                child: Lottie.network(
-                                                  'https://assets10.lottiefiles.com/packages/lf20_Dob5qfagRb.json',
-                                                ),
+                                                child: Lottie.asset(
+                                                    'assets/logo/118159-right-arrow-light.json'),
                                               ),
                                             ),
                                     ),
@@ -104,50 +104,44 @@ class DepartmentsView extends GetView<DepartmentsController> {
                                             top: Get.height * 0.1),
                                         child: CarouselSlider(
                                           options: CarouselOptions(
+                                            viewportFraction: 0.5,
                                             enlargeCenterPage: true,
                                             enableInfiniteScroll: false,
                                           ),
                                           items: List<Widget>.from(controller
-                                              .departmentsData[index]['users']
-                                              .map((item) {
-                                            return PengurusDepartment(
-                                              avatar: controller
-                                                      .departmentsData[index]
-                                                  ['users'][0]['avatar'],
-                                              name: controller
-                                                      .departmentsData[index]
-                                                  ['users'][0]['name'],
-                                              role: controller
-                                                      .departmentsData[index]
-                                                  ['users'][0]['role'],
-                                            );
-                                          }).toList()),
+                                              .departments.value.data
+                                              .expand((dept) => dept.users)
+                                              .map((user) => PengurusDepartment(
+                                                    avatar: user.avatar,
+                                                    name: user.name,
+                                                    role: user.role,
+                                                  ))).toList(),
                                         )),
                                   ),
                                   Expanded(
                                     flex: 2,
                                     child: Container(
-                                        alignment: Alignment.topCenter,
-                                        decoration: BoxDecoration(
-                                          borderRadius: BorderRadius.only(
-                                            topLeft: Radius.circular(20),
-                                            bottomLeft: Radius.circular(20),
-                                          ),
+                                      alignment: Alignment.topCenter,
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.only(
+                                          topLeft: Radius.circular(20),
+                                          bottomLeft: Radius.circular(20),
                                         ),
-                                        child: index ==
-                                                controller.departmentsData
-                                                        .length -
-                                                    1
-                                            ? Container()
-                                            : Container(
-                                                margin: EdgeInsets.only(
-                                                    top: Get.height * 0.2),
-                                                padding:
-                                                    EdgeInsets.only(right: 10),
-                                                child: Lottie.network(
-                                                  'https://assets10.lottiefiles.com/packages/lf20_Dob5qfagRb.json',
-                                                ),
-                                              )),
+                                      ),
+                                      child: index ==
+                                              controller.departments.value.data
+                                                      .length -
+                                                  1
+                                          ? Container()
+                                          : Container(
+                                              margin: EdgeInsets.only(
+                                                  top: Get.height * 0.2),
+                                              padding:
+                                                  EdgeInsets.only(right: 10),
+                                              child: Lottie.asset(
+                                                  'assets/logo/118159-right-arrow-light.json'),
+                                            ),
+                                    ),
                                   ),
                                 ],
                               ));
@@ -156,12 +150,10 @@ class DepartmentsView extends GetView<DepartmentsController> {
                           controller.currentIndex.value = index;
                         }),
                     collapsed: Departments(
-                      logo: controller
-                              .departmentsData[controller.currentIndex.value]
-                          ['logo'],
-                      name: controller
-                              .departmentsData[controller.currentIndex.value]
-                          ['short_name'],
+                      logo: controller.departments.value
+                          .data[controller.currentIndex.value].logo,
+                      name: controller.departments.value
+                          .data[controller.currentIndex.value].shortName,
                     ),
                     panelBuilder: (ScrollController sc) {
                       return Proker(
@@ -170,6 +162,8 @@ class DepartmentsView extends GetView<DepartmentsController> {
                     },
                   ),
           );
-        }));
+        },
+      ),
+    );
   }
 }
