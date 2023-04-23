@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:proyek4_nera/routes/app_routes.dart';
 
 import '../controllers/home_controller.dart';
 
@@ -28,7 +29,9 @@ class HomeV extends GetView<HomeC> {
               child: BadgeIconButton(
                 icon: Icon(Icons.notifications),
                 badgeCount: 10,
-                onPressed: () {},
+                onPressed: () {
+                  Get.toNamed(RouteName.notif);
+                },
               ),
             ),
           ],

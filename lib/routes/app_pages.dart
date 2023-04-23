@@ -14,6 +14,7 @@ import '../pages/auth/changePass_view.dart';
 import '../pages/departments_view.dart';
 import '../pages/events_view.dart';
 import '../pages/home_view.dart';
+import '../pages/notif_view.dart';
 import '../pages/profile_view.dart';
 import '../pages/tanyaNera_view.dart';
 
@@ -47,5 +48,9 @@ class AppPages {
       name: RouteName.tanyaNera,
       page: () => TanyaNeraView(),
     ),
+    GetPage(
+      name: RouteName.notif,
+      page: () => NotifView(),
+    )
   ];
 }
