@@ -47,7 +47,7 @@ class DepartmentsView extends GetView<DepartmentsController> {
             child: controller.departmentsData.isEmpty
                 ? Center(child: CircularProgressIndicator())
                 : SlidingUpPanel(
-                    maxHeight: Get.height * 0.4,
+                    maxHeight: Get.height * 0.5,
                     minHeight: Get.height * 0.3,
                     parallaxEnabled: true,
                     parallaxOffset: 0.5,
@@ -111,15 +111,16 @@ class DepartmentsView extends GetView<DepartmentsController> {
                                               .departmentsData[index]['users']
                                               .map((item) {
                                             return PengurusDepartment(
-                                                controller
-                                                        .departmentsData[index]
-                                                    ['users'][0]['avatar'],
-                                                controller
-                                                        .departmentsData[index]
-                                                    ['users'][0]['name'],
-                                                controller
-                                                        .departmentsData[index]
-                                                    ['users'][0]['role']);
+                                              avatar: controller
+                                                      .departmentsData[index]
+                                                  ['users'][0]['avatar'],
+                                              name: controller
+                                                      .departmentsData[index]
+                                                  ['users'][0]['name'],
+                                              role: controller
+                                                      .departmentsData[index]
+                                                  ['users'][0]['role'],
+                                            );
                                           }).toList()),
                                         )),
                                   ),
@@ -155,14 +156,17 @@ class DepartmentsView extends GetView<DepartmentsController> {
                           controller.currentIndex.value = index;
                         }),
                     collapsed: Departments(
-                        controller
-                                .departmentsData[controller.currentIndex.value]
-                            ['logo'],
-                        controller
-                                .departmentsData[controller.currentIndex.value]
-                            ['short_name']),
+                      logo: controller
+                              .departmentsData[controller.currentIndex.value]
+                          ['logo'],
+                      name: controller
+                              .departmentsData[controller.currentIndex.value]
+                          ['short_name'],
+                    ),
                     panelBuilder: (ScrollController sc) {
-                      return Proker(sc);
+                      return Proker(
+                        controller: sc,
+                      );
                     },
                   ),
           );

@@ -55,9 +55,10 @@ class HomeV extends GetView<HomeC> {
                               final index =
                                   homeC.kepengurusanData.indexOf(item);
                               return Pengurus(
-                                  homeC.kepengurusanData[index]['avatar'],
-                                  homeC.kepengurusanData[index]['name'],
-                                  homeC.kepengurusanData[index]['role']);
+                                avatar: homeC.kepengurusanData[index]['avatar'],
+                                name: homeC.kepengurusanData[index]['name'],
+                                role: homeC.kepengurusanData[index]['role'],
+                              );
                             }).toList(),
                           )),
                     ),
@@ -75,12 +76,14 @@ class HomeV extends GetView<HomeC> {
                                 )),
                           ),
                           Container(
-                              margin: EdgeInsets.only(bottom: 20),
-                              child: Kabinet(
-                                  homeC.kabinetData[0]['logo'],
-                                  homeC.kabinetData[0]['name'],
-                                  homeC.kabinetData[0]['description'],
-                                  context)),
+                            margin: EdgeInsets.only(bottom: 20),
+                            child: Kabinet(
+                              pathLogo: homeC.kabinetData[0]['logo'],
+                              name: homeC.kabinetData[0]['name'],
+                              description: homeC.kabinetData[0]['description'],
+                              context: context,
+                            ),
+                          ),
                         ],
                       ),
                     ),

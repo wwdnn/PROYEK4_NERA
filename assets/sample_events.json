@@ -5,7 +5,15 @@
       "poster": "http://192.168.100.31:8000/storage/cabinets/events/poster/2023-04-17-05-20-13_Ryan Berg.png",
       "name": "Kumpul Rutin",
       "description": "Kumpul Rutin Himpunan berdiskusi terkait proker",
-      "date": "2023-04-19",
+      "date": "2023-04-24",
+      "location": "Taman JTK",
+      "type": "Kegiatan"
+    },
+    {
+      "poster": "http://192.168.100.31:8000/storage/cabinets/events/poster/2023-04-17-05-20-13_Ryan Berg.png",
+      "name": "Kumpul Rutin",
+      "description": "Kumpul Rutin Himpunan berdiskusi terkait proker",
+      "date": "2023-04-24",
       "location": "Taman JTK",
       "type": "Kegiatan"
     },
@@ -13,7 +21,7 @@
       "poster": "http://192.168.100.31:8000/storage/cabinets/events/poster/2023-04-17-05-20-13_Ryan Berg.png",
       "name": "Sparkling Hustle",
       "description": "Proker Riset Dikti",
-      "date": "2023-04-20",
+      "date": "2023-04-24",
       "location": "Zoom Meeting",
       "type": "Proker"
     },

@@ -2,6 +2,7 @@
 
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class TanyaNeraView extends GetView {
   @override
@@ -22,10 +23,11 @@ class TanyaNeraView extends GetView {
                     ),
                     title: Text(
                       "TANYA NERA",
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold),
+                      style: GoogleFonts.poppins(
+                        color: Colors.white,
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                     onTap: () => Get.back(),
                   ),
@@ -49,17 +51,19 @@ class TanyaNeraView extends GetView {
                       SizedBox(height: 30),
                       Text(
                         "Get Support",
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold),
+                        style: GoogleFonts.poppins(
+                          color: Colors.black,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                       SizedBox(height: 30),
                       Text(
                         "Untuk permintaan dan keluhan, jangan ragu untuk berbicara dengan kami di bawah ini.",
-                        style: TextStyle(
+                        style: GoogleFonts.poppins(
                           color: Colors.black,
                           fontSize: 15,
+                          fontWeight: FontWeight.w600,
                         ),
                         textAlign: TextAlign.center,
                       ),
@@ -69,24 +73,30 @@ class TanyaNeraView extends GetView {
                           children: [
                             Text(
                               "Achmadya Ridwan Ilyawan",
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.bold),
+                              style: GoogleFonts.poppins(
+                                color: Colors.black,
+                                fontSize: 15,
+                                fontWeight: FontWeight.bold,
+                              ),
+                              textAlign: TextAlign.center,
                             ),
                             Text(
                               "Arief Rahman Ahmadhusein",
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.bold),
+                              style: GoogleFonts.poppins(
+                                color: Colors.black,
+                                fontSize: 15,
+                                fontWeight: FontWeight.bold,
+                              ),
+                              textAlign: TextAlign.center,
                             ),
                             Text(
                               "Wildan Setya Nugraha",
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.bold),
+                              style: GoogleFonts.poppins(
+                                color: Colors.black,
+                                fontSize: 15,
+                                fontWeight: FontWeight.bold,
+                              ),
+                              textAlign: TextAlign.center,
                             )
                           ],
                         ),

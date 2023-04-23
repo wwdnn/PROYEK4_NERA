@@ -1,5 +1,6 @@
 import "package:get/get.dart";
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:proyek4_nera/routes/app_routes.dart';
 
 import '../controllers/profile_controller.dart';
@@ -24,6 +25,11 @@ class ProfileView extends GetView<ProfileController> {
                       bottomRight: Radius.circular(50),
                     ),
                     color: Color(0xFF345FB4),
+                    image: DecorationImage(
+                      image: AssetImage("assets/logo/background_pattern.png"),
+                      fit: BoxFit.cover,
+                      opacity: 0.2,
+                    ),
                   ),
                 ),
                 Positioned(
@@ -67,23 +73,43 @@ class ProfileView extends GetView<ProfileController> {
                               Container(
                                 margin: EdgeInsets.only(top: 10),
                                 child: Text(
-                                  'FAHMI AHMAD FADILLAH',
-                                  style: TextStyle(
+                                  'WILDAN SETYA NUGRAHA',
+                                  style: GoogleFonts.poppins(
                                     color: Colors.white,
                                     fontSize: 20,
                                     fontWeight: FontWeight.bold,
                                   ),
+                                  overflow: TextOverflow.ellipsis,
+                                  maxLines: 1,
+                                  textAlign: TextAlign.center,
                                 ),
                               ),
                               Container(
-                                margin: EdgeInsets.only(top: 5),
+                                margin: EdgeInsets.only(top: 1),
                                 child: Text(
-                                  'NIM',
-                                  style: TextStyle(
+                                  '211511032',
+                                  style: GoogleFonts.poppins(
                                     color: Colors.white,
-                                    fontSize: 20,
+                                    fontSize: 15,
                                     fontWeight: FontWeight.bold,
                                   ),
+                                  overflow: TextOverflow.ellipsis,
+                                  maxLines: 1,
+                                  textAlign: TextAlign.center,
+                                ),
+                              ),
+                              Container(
+                                margin: EdgeInsets.only(top: 1),
+                                child: Text(
+                                  'IBM OS',
+                                  style: GoogleFonts.poppins(
+                                    color: Colors.white,
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                  overflow: TextOverflow.ellipsis,
+                                  maxLines: 1,
+                                  textAlign: TextAlign.center,
                                 ),
                               ),
                             ],
@@ -122,8 +148,11 @@ class ProfileView extends GetView<ProfileController> {
                       title: Text(
                         // ignore: unnecessary_string_interpolations
                         '${profileC.menuProfile[index]}',
-                        style: TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.bold),
+                        style: GoogleFonts.poppins(
+                          color: Colors.black,
+                          fontSize: 15,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                       trailing: Icon(Icons.arrow_forward_ios,
                           size: 15, color: Colors.black),
