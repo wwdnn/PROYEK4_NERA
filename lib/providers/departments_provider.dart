@@ -13,6 +13,7 @@ class DepartmentsProvider extends GetConnect {
     });
     if (response.statusCode == 200) {
       final responseString = json.encode(response.body);
+      print(responseString);
       final departmentsModel = departmentsModelFromJson(responseString);
       return departmentsModel;
     }

@@ -27,6 +27,7 @@ class ProfileController extends GetxController {
     accessToken: '',
   ).obs;
 
+  bool isLogin = false;
   RxBool isPasswordVisible = false.obs;
   RxBool isPasswordVisibleNew = false.obs;
   RxBool isPasswordVisibleConfirm = false.obs;
@@ -34,11 +35,6 @@ class ProfileController extends GetxController {
   TextEditingController passwordController = TextEditingController();
   TextEditingController newPasswordController = TextEditingController();
   TextEditingController confirmPasswordController = TextEditingController();
-
-  @override
-  void onInit() {
-    super.onInit();
-  }
 
   void showHidePassword() {
     isPasswordVisible.value = !isPasswordVisible.value;
@@ -58,9 +54,10 @@ class ProfileController extends GetxController {
   void login(BuildContext context, String email, String password) {
     ProfileProvider().login(email, password).then((value) {
       if (value != null) {
-        accessToken = value.accessToken;
         auth.value = value;
-        Get.offAllNamed(RouteName.home);
+        accessToken = auth.value.accessToken;
+        isLogin = true;
+        Get.offNamed(RouteName.basePage);
       } else {
         showTopSnackBar(
           Overlay.of(context),

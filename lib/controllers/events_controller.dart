@@ -19,6 +19,8 @@ class EventsController extends GetxController {
   void onClose() {}
 
   Future<void> getData() async {
+    // clear data
+    events.value = EventsModel(status: '', data: []);
     await Future.delayed(Duration(seconds: 1));
     EventsProvider().getEvents().then((value) {
       events.value = value;

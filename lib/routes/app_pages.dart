@@ -18,10 +18,15 @@ import '../pages/notif_view.dart';
 import '../pages/profile_view.dart';
 import '../pages/tanyaNera_view.dart';
 
+import '../widgets/base_page.dart';
 import 'app_routes.dart';
 
 class AppPages {
   static final pages = [
+    GetPage(
+      name: RouteName.basePage,
+      page: () => BasePage(),
+    ),
     GetPage(name: RouteName.home, page: () => HomeV(), binding: HomeB()),
     GetPage(
         name: RouteName.departments,

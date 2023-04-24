@@ -15,7 +15,7 @@ class EventsView extends GetView<EventsController> {
     return Scaffold(
       body: Obx(() {
         return RefreshIndicator(
-          onRefresh: () => Future.delayed(Duration(seconds: 1)),
+          onRefresh: eventsC.getData,
           child: eventsC.filterDataType.isEmpty
               ? Center(child: CircularProgressIndicator())
               : Container(

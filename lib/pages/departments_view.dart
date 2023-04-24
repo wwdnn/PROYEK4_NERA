@@ -44,7 +44,7 @@ class DepartmentsView extends GetView<DepartmentsController> {
       body: Obx(
         () {
           return RefreshIndicator(
-            onRefresh: () => Future.delayed(Duration(seconds: 1)),
+            onRefresh: controller.getData,
             child: controller.departments.value.data.isEmpty
                 ? Center(child: CircularProgressIndicator())
                 : SlidingUpPanel(

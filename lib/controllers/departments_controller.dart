@@ -19,6 +19,7 @@ class DepartmentsController extends GetxController {
 
   // get Data from API
   Future<void> getData() async {
+    // clear data
     departments.value = DepartmentsModel(
       status: '',
       data: [],
@@ -26,6 +27,7 @@ class DepartmentsController extends GetxController {
     await Future.delayed(Duration(seconds: 1));
     DepartmentsProvider().getDepartments().then((value) {
       departments.value = value;
+      print(value);
     });
     update();
   }

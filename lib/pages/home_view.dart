@@ -17,7 +17,7 @@ class HomeV extends GetView<HomeC> {
   @override
   Widget build(BuildContext context) {
     final homeC = Get.put(HomeC());
-    final profileC = Get.put(ProfileController());
+    final profileC = Get.find<ProfileController>();
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Color(0xFF345FB4),
@@ -43,7 +43,7 @@ class HomeV extends GetView<HomeC> {
         body: Obx(() {
           return RefreshIndicator(
             onRefresh: homeC.getKepengurusan,
-            child: homeC.kabinet.value.data.isEmpty
+            child: homeC.kabinet.value.data.isEmpty 
                 ? Center(child: CircularProgressIndicator())
                 : ListView(children: [
                     ClipPath(

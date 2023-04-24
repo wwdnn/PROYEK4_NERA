@@ -7,7 +7,7 @@ import 'package:animated_text_kit/animated_text_kit.dart';
 class AuthView extends GetView<ProfileController> {
   @override
   Widget build(BuildContext context) {
-    final profileC = Get.put(ProfileController());
+    final profileC = Get.find<ProfileController>();
     return Scaffold(
       body: Obx(() {
         return Container(

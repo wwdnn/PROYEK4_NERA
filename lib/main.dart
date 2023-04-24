@@ -5,6 +5,8 @@ import 'package:proyek4_nera/routes/app_routes.dart';
 import 'package:proyek4_nera/widgets/base_page.dart';
 import 'package:proyek4_nera/widgets/splash.dart';
 
+import 'controllers/profile_controller.dart';
+
 void main() {
   runApp(MyApp());
 }
@@ -12,13 +14,13 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final profileC = Get.put(ProfileController());
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: "Application",
-      // home: BasePage(),
-      initialRoute: RouteName.login,
+      initialRoute:
+          profileC.isLogin == false ? RouteName.login : RouteName.basePage,
       getPages: AppPages.pages,
-      // getPages: AppPages.pages,
       theme: ThemeData(
         pageTransitionsTheme: PageTransitionsTheme(
           builders: {
@@ -30,7 +32,6 @@ class MyApp extends StatelessWidget {
           focusColor: Color(0xFF345FB4),
         ),
       ),
-      home: BasePage(),
     );
     return FutureBuilder(
         future: Future.delayed(Duration(seconds: 3)),
