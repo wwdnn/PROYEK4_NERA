@@ -16,7 +16,7 @@ class EventsView extends GetView<EventsController> {
       body: Obx(() {
         return RefreshIndicator(
           onRefresh: eventsC.getData,
-          child: eventsC.filterDataType.isEmpty
+          child: eventsC.isLoading.value
               ? Center(child: CircularProgressIndicator())
               : Container(
                   decoration: BoxDecoration(

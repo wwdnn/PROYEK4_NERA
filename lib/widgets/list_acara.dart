@@ -32,6 +32,7 @@ class ListAcara extends StatelessWidget {
               children: [
                 Container(
                   alignment: Alignment.centerLeft,
+                  width: 100,
                   child: Container(
                     child: Image.network(listAcara[index].poster,
                         fit: BoxFit.fitHeight),

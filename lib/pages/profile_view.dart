@@ -52,7 +52,7 @@ class ProfileView extends GetView<ProfileController> {
                         Container(
                           margin: EdgeInsets.only(top: 10),
                           child: Image.network(
-                            'http://neracietas.site/storage/${profileC.auth.value.user.avatar}',
+                            profileC.auth.value.user.avatar,
                             width: 115,
                             height: 140,
                           ),

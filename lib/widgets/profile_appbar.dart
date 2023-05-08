@@ -21,7 +21,7 @@ class ProfileAppbar extends StatelessWidget {
             width: 40,
             height: 40,
             child: Image.network(
-              'http://neracietas.site/storage/${user.avatar}',
+              user.avatar,
               fit: BoxFit.cover,
             ),
           ),
@@ -50,7 +50,7 @@ class ProfileAppbar extends StatelessWidget {
 
             // status user
             Text(
-              user.namaBagus.toString(),
+              user.role,
               style: GoogleFonts.poppins(
                 color: Colors.grey,
                 fontSize: 15,

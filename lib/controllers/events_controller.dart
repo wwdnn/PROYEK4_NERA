@@ -7,6 +7,7 @@ class EventsController extends GetxController {
   Rx<EventsModel> events = EventsModel(status: '', data: []).obs;
   RxList<dynamic> filterDataType = [].obs;
   RxList<dynamic> filterDataDate = [].obs;
+  RxBool isLoading = true.obs;
   String? selectedValue;
 
   @override
@@ -19,11 +20,11 @@ class EventsController extends GetxController {
   void onClose() {}
 
   Future<void> getData() async {
-    // clear data
     events.value = EventsModel(status: '', data: []);
     await Future.delayed(Duration(seconds: 1));
     EventsProvider().getEvents().then((value) {
       events.value = value;
+      isLoading.value = false;
       filterDataByDate(DateTime.now());
       filterDataByType('Semua');
     });

@@ -12,17 +12,14 @@ class ProfileController extends GetxController {
   List<String> menuProfile = ['Ganti Password', 'Tanya Nera', 'Akhiri Sesi'];
   Rx<AuthModel> auth = AuthModel(
     user: User(
-      id: 0,
+      name: '',
       nim: '',
+      email: '',
       na: '',
       namaBagus: '',
       avatar: '',
-      email: '',
-      name: '',
       year: '',
-      emailVerifiedAt: '',
-      createdAt: DateTime.now(),
-      updatedAt: DateTime.now(),
+      role: '',
     ),
     accessToken: '',
   ).obs;

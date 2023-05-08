@@ -9,13 +9,13 @@ AuthModel authModelFromJson(String str) => AuthModel.fromJson(json.decode(str));
 String authModelToJson(AuthModel data) => json.encode(data.toJson());
 
 class AuthModel {
+    User user;
+    String accessToken;
+
     AuthModel({
         required this.user,
         required this.accessToken,
     });
-
-    User user;
-    String accessToken;
 
     factory AuthModel.fromJson(Map<String, dynamic> json) => AuthModel(
         user: User.fromJson(json["user"]),
@@ -29,57 +29,45 @@ class AuthModel {
 }
 
 class User {
+    String name;
+    String nim;
+    String email;
+    String na;
+    String year;
+    String namaBagus;
+    String role;
+    String avatar;
+
     User({
-        required this.id,
-        required this.nim,
-        required this.na,
-        required this.namaBagus,
-        required this.avatar,
-        required this.email,
         required this.name,
+        required this.nim,
+        required this.email,
+        required this.na,
         required this.year,
-        this.emailVerifiedAt,
-        required this.createdAt,
-        required this.updatedAt,
+        required this.namaBagus,
+        required this.role,
+        required this.avatar,
     });
 
-    int id;
-    String nim;
-    String na;
-    String namaBagus;
-    String avatar;
-    String email;
-    String name;
-    String year;
-    dynamic emailVerifiedAt;
-    DateTime createdAt;
-    DateTime updatedAt;
-
     factory User.fromJson(Map<String, dynamic> json) => User(
-        id: json["id"],
-        nim: json["nim"],
-        na: json["na"],
-        namaBagus: json["nama_bagus"],
-        avatar: json["avatar"],
-        email: json["email"],
         name: json["name"],
+        nim: json["nim"],
+        email: json["email"],
+        na: json["na"],
         year: json["year"],
-        emailVerifiedAt: json["email_verified_at"],
-        createdAt: DateTime.parse(json["created_at"]),
-        updatedAt: DateTime.parse(json["updated_at"]),
+        namaBagus: json["nama_bagus"],
+        role: json["role"],
+        avatar: json["avatar"],
     );
 
     Map<String, dynamic> toJson() => {
-        "id": id,
-        "nim": nim,
-        "na": na,
-        "nama_bagus": namaBagus,
-        "avatar": avatar,
-        "email": email,
         "name": name,
+        "nim": nim,
+        "email": email,
+        "na": na,
         "year": year,
-        "email_verified_at": emailVerifiedAt,
-        "created_at": createdAt.toIso8601String(),
-        "updated_at": updatedAt.toIso8601String(),
+        "nama_bagus": namaBagus,
+        "role": role,
+        "avatar": avatar,
     };
 }
