@@ -127,7 +127,8 @@ class ProfileView extends GetView<ProfileController> {
             delegate: SliverChildBuilderDelegate(
               (BuildContext context, int index) {
                 return Container(
-                  height: 60,
+                  height: 80,
+                  alignment: Alignment.center,
                   margin:
                       EdgeInsets.only(top: 10, left: 20, right: 20, bottom: 10),
                   decoration: BoxDecoration(
@@ -162,12 +163,9 @@ class ProfileView extends GetView<ProfileController> {
                         // switch case
                         switch (index) {
                           case 0:
-                            Get.toNamed(RouteName.changePassword);
-                            break;
-                          case 1:
                             Get.toNamed(RouteName.tanyaNera);
                             break;
-                          case 2:
+                          case 1:
                             profileC.logout();
                             break;
                           default:

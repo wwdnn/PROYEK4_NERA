@@ -18,11 +18,11 @@ class Pengurus extends StatelessWidget {
       alignment: Alignment.center,
       children: [
         Container(
-          height: 200,
+          height: 250,
           child: Image.network(avatar, fit: BoxFit.cover),
         ),
         Container(
-          padding: EdgeInsets.only(top: 150),
+          padding: EdgeInsets.only(top: 160),
           child: Container(
             width: 160,
             height: 65,

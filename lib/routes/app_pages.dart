@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import '../bindings/departments_binding.dart';
 import '../bindings/events_binding.dart';
 import '../bindings/home_binding.dart';
+import '../bindings/notif_binding.dart';
 import '../bindings/profile_binding.dart';
 
 // Import View
@@ -56,6 +57,7 @@ class AppPages {
     GetPage(
       name: RouteName.notif,
       page: () => NotifView(),
+      binding: NotifB(),
     )
   ];
 }

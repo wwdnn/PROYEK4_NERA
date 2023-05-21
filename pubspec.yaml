@@ -8,11 +8,9 @@ environment:
 dependencies: 
   cupertino_icons: ^1.0.2
   get: 4.6.5
-  flutter: 
-    sdk: flutter
   carousel_slider: ^4.2.1
-  intl: 
-  google_fonts:  
+  intl: any
+  google_fonts: any
   curved_navigation_bar: ^1.0.3
   flutter_staggered_grid_view: ^0.6.2
   sliding_up_panel: ^2.0.0+1
@@ -22,6 +20,10 @@ dependencies:
   top_snackbar_flutter: ^3.0.0+1
   lottie: ^2.3.2
   salomon_bottom_bar: ^3.3.2
+  firebase_core: ^2.13.0
+  firebase_messaging: 14.6.1
+  flutter: 
+    sdk: flutter
 
 dev_dependencies: 
   flutter_lints: ^2.0.0
@@ -30,10 +32,10 @@ dev_dependencies:
     sdk: flutter
 
 flutter: 
-  uses-material-design: true
-  assets:
+  assets: 
     - assets/logo/
     - assets/sample_departments.json
     - assets/sample_events.json
     - assets/sample_auth.json
+  uses-material-design: true
 

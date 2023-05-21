@@ -82,39 +82,6 @@ class Kabinet extends StatelessWidget {
                       maxLines: 3,
                     ),
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      TextButton(
-                        onPressed: () => {
-                          showDialog(
-                              context: context,
-                              builder: (context) {
-                                // card
-                                return Dialog(
-                                    shape: RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(20)),
-                                    elevation: 16,
-                                    child: Container(height: 300));
-                              })
-                        },
-                        child: Text(
-                          "Detail kabinet",
-                          style: GoogleFonts.poppins(
-                            fontSize: 16,
-                            color: Color.fromARGB(255, 219, 43, 43),
-                            fontWeight: FontWeight.w400,
-                          ),
-                        ),
-                      ),
-                      Icon(
-                        Icons.arrow_forward_ios,
-                        color: Color.fromARGB(255, 219, 43, 43),
-                        size: 16,
-                      )
-                    ],
-                  ),
                 ],
               ),
             ),

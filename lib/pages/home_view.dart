@@ -6,6 +6,7 @@ import 'package:proyek4_nera/routes/app_routes.dart';
 
 import '../controllers/home_controller.dart';
 
+import '../controllers/notif_controller.dart';
 import '../controllers/profile_controller.dart';
 import '../widgets/badge_notif.dart';
 import '../widgets/pengurus.dart';
@@ -18,6 +19,7 @@ class HomeV extends GetView<HomeC> {
   Widget build(BuildContext context) {
     final homeC = Get.put(HomeC());
     final profileC = Get.find<ProfileController>();
+    final notifC = Get.find<NotifC>();
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Color(0xFF345FB4),
@@ -28,22 +30,24 @@ class HomeV extends GetView<HomeC> {
             user: profileC.auth.value.user,
           ),
           actions: [
-            Container(
-              alignment: Alignment.center,
-              child: BadgeIconButton(
-                icon: Icon(Icons.notifications),
-                badgeCount: 10,
-                onPressed: () {
-                  Get.toNamed(RouteName.notif);
-                },
-              ),
-            ),
+            Obx(() {
+              return Container(
+                alignment: Alignment.center,
+                child: BadgeIconButton(
+                  icon: Icon(Icons.notifications),
+                  badgeCount: notifC.notif.value.length,
+                  onPressed: () {
+                    Get.toNamed(RouteName.notif);
+                  },
+                ),
+              );
+            })
           ],
         ),
         body: Obx(() {
           return RefreshIndicator(
             onRefresh: homeC.getKepengurusan,
-            child: homeC.kabinet.value.data.isEmpty 
+            child: homeC.kabinet.value.data.isEmpty
                 ? Center(child: CircularProgressIndicator())
                 : ListView(children: [
                     ClipPath(

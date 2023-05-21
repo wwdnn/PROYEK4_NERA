@@ -42,20 +42,14 @@ class AuthView extends GetView<ProfileController> {
                         height: 5,
                       ),
                       Container(
-                        child: AnimatedTextKit(
-                          animatedTexts: [
-                            WavyAnimatedText(
-                              "HIMAKOM",
-                              textStyle: GoogleFonts.poppins(
-                                fontSize: 30,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white,
-                              ),
-                            ),
-                          ],
-                          isRepeatingAnimation: true,
+                          child: Text(
+                        "HIMAKOM",
+                        style: GoogleFonts.poppins(
+                          fontSize: 30,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
                         ),
-                      ),
+                      )),
                     ],
                   ),
                 ),
@@ -75,9 +69,23 @@ class AuthView extends GetView<ProfileController> {
                     children: [
                       Container(
                         margin: EdgeInsets.only(left: 20),
-                        child: Text("Hi HIMAKOM",
-                            style: GoogleFonts.poppins(
-                                fontSize: 30, fontWeight: FontWeight.bold)),
+                        child: AnimatedTextKit(
+                          // time
+                          totalRepeatCount: 5,
+                          pause: Duration(milliseconds: 1000),
+                          animatedTexts: [
+                            TypewriterAnimatedText(
+                              "Hi, HIMAKOM",
+                              textStyle: GoogleFonts.poppins(
+                                fontSize: 30,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black,
+                              ),
+                              speed: Duration(milliseconds: 200),
+                            ),
+                          ],
+                          isRepeatingAnimation: true,
+                        ),
                       ),
                       Container(
                         margin: EdgeInsets.only(top: 10, left: 20, right: 20),
@@ -143,21 +151,6 @@ class AuthView extends GetView<ProfileController> {
                                   letterSpacing: 1)),
                         ),
                       ),
-                      Container(
-                        margin: EdgeInsets.only(right: 10),
-                        alignment: Alignment.centerRight,
-                        child: TextButton(
-                          onPressed: () {},
-                          child: Text(
-                            "Lupa Password?",
-                            style: GoogleFonts.poppins(
-                              fontSize: 15,
-                              fontWeight: FontWeight.bold,
-                              color: Color(0xFF345FB4),
-                            ),
-                          ),
-                        ),
-                      )
                     ],
                   ),
                 ),

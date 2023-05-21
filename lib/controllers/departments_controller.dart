@@ -27,7 +27,6 @@ class DepartmentsController extends GetxController {
     await Future.delayed(Duration(seconds: 1));
     DepartmentsProvider().getDepartments().then((value) {
       departments.value = value;
-      print(value);
     });
     update();
   }

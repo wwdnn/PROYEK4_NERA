@@ -15,13 +15,14 @@ class PengurusDepartment extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 200,
-      width: 150,
       child: Stack(
         children: [
           Container(
             alignment: Alignment.center,
-            child: Image.network(avatar, fit: BoxFit.cover),
+            child: Container(
+              width: 250,
+              child: Image.network(avatar, fit: BoxFit.cover),
+            ),
           ),
           Positioned(
             bottom: 0,
