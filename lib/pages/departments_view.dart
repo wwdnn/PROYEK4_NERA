@@ -230,6 +230,9 @@ class DepartmentsView extends GetView<DepartmentsController> {
                                                                 FontWeight.bold,
                                                             letterSpacing: 1,
                                                           ),
+                                                          overflow:
+                                                              TextOverflow.fade,
+                                                          maxLines: 1,
                                                         ),
                                                       ),
                                                       Container(
@@ -253,6 +256,9 @@ class DepartmentsView extends GetView<DepartmentsController> {
                                                                     0),
                                                             letterSpacing: 0.7,
                                                           ),
+                                                          overflow:
+                                                              TextOverflow.fade,
+                                                          maxLines: 1,
                                                         ),
                                                       ),
                                                       Container(
@@ -277,6 +283,9 @@ class DepartmentsView extends GetView<DepartmentsController> {
                                                                     0),
                                                             letterSpacing: 0.7,
                                                           ),
+                                                          overflow:
+                                                              TextOverflow.fade,
+                                                          maxLines: 1,
                                                         ),
                                                       ),
                                                     ],

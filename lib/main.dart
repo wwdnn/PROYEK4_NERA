@@ -55,26 +55,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final profileC = Get.put(ProfileController());
-    return GetMaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: "Application",
-      initialRoute:
-          profileC.isLogin == false ? RouteName.login : RouteName.basePage,
-      getPages: AppPages.pages,
-      theme: ThemeData(
-        pageTransitionsTheme: PageTransitionsTheme(
-          builders: {
-            TargetPlatform.android: FadeUpwardsPageTransitionsBuilder(),
-            TargetPlatform.iOS: FadeUpwardsPageTransitionsBuilder(),
-          },
-        ),
-        inputDecorationTheme: InputDecorationTheme(
-          focusColor: Color(0xFF345FB4),
-        ),
-      ),
-    );
     return FutureBuilder(
-        future: Future.delayed(Duration(seconds: 3)),
+        future: Future.delayed(Duration(seconds: 5)),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return SplashScreen();
@@ -82,15 +64,19 @@ class MyApp extends StatelessWidget {
             return GetMaterialApp(
               debugShowCheckedModeBanner: false,
               title: "Application",
-              home: BasePage(),
-              // initialRoute: AppPages.INITIAL,
-              // getPages: AppPages.routes,
+              initialRoute: profileC.isLogin == false
+                  ? RouteName.login
+                  : RouteName.basePage,
+              getPages: AppPages.pages,
               theme: ThemeData(
                 pageTransitionsTheme: PageTransitionsTheme(
                   builders: {
                     TargetPlatform.android: FadeUpwardsPageTransitionsBuilder(),
                     TargetPlatform.iOS: FadeUpwardsPageTransitionsBuilder(),
                   },
+                ),
+                inputDecorationTheme: InputDecorationTheme(
+                  focusColor: Color(0xFF345FB4),
                 ),
               ),
             );
