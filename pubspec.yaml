@@ -22,6 +22,7 @@ dependencies:
   salomon_bottom_bar: ^3.3.2
   firebase_core: ^2.13.0
   firebase_messaging: 14.6.1
+  flutter_launcher_icons: ^0.13.1
   flutter: 
     sdk: flutter
 
@@ -30,6 +31,12 @@ dev_dependencies:
   lints: 2.0.1
   flutter_test: 
     sdk: flutter
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/logo/Logo_Icon.png"
+  min_sdk_android: 21 # android min sdk min:16, default 21
 
 flutter: 
   assets: 
