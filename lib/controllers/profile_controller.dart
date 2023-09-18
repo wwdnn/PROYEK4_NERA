@@ -1,4 +1,3 @@
-import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:proyek4_nera/models/auth_model.dart';
@@ -50,8 +49,6 @@ class ProfileController extends GetxController {
   }
 
   void login(BuildContext context, String email, String password) async {
-    final fcmToken = await FirebaseMessaging.instance.getToken();
-    print(fcmToken);
     ProfileProvider().login(email, password).then((value) {
       if (value != null) {
         auth.value = value;

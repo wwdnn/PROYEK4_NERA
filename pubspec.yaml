@@ -20,8 +20,6 @@ dependencies:
   top_snackbar_flutter: ^3.0.0+1
   lottie: ^2.3.2
   salomon_bottom_bar: ^3.3.2
-  firebase_core: ^2.13.0
-  firebase_messaging: 14.6.1
   flutter_launcher_icons: ^0.13.1
   flutter: 
     sdk: flutter

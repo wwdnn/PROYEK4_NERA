@@ -49,40 +49,6 @@ class _BasePageState extends State<BasePage> {
             ),
           ],
         ),
-        // CurvedNavigationBar(
-        //   index: index,
-        //   color: Color.fromARGB(255, 255, 255, 255),
-        //   backgroundColor: Colors.white,
-        //   buttonBackgroundColor: Colors.white,
-        //   animationDuration: const Duration(milliseconds: 800),
-        //   height: 65,
-        //   items: <Widget>[
-        //     Icon(
-        //       Icons.home,
-        //       size: 30,
-        //       color: Color.fromARGB(255, 0, 0, 0),
-        //     ),
-        //     Image.asset(
-        //       'assets/logo/Vector.png',
-        //       width: 30,
-        //       height: 30,
-        //     ),
-        //     // Image.asset(
-        //     //   'assets/logo/Logo_HIMAKOM.png',
-        //     //   width: 60,
-        //     //   height: 60,
-        //     // ),
-        //     Icon(Icons.calendar_month_outlined,
-        //         size: 30, color: Color.fromARGB(255, 0, 0, 0)),
-        //     Icon(Icons.person, size: 30, color: Color.fromARGB(255, 0, 0, 0)),
-        //   ],
-        //   onTap: (selectedIndex) {
-        //     setState(() {
-        //       index = selectedIndex;
-        //     });
-        //   },
-        //   letIndexChange: (index) => true,
-        // ),
         body: Container(
           child: getSelectedWidget(index: index),
         ));

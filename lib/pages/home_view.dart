@@ -19,7 +19,7 @@ class HomeV extends GetView<HomeC> {
   Widget build(BuildContext context) {
     final homeC = Get.put(HomeC());
     final profileC = Get.find<ProfileController>();
-    final notifC = Get.find<NotifC>();
+    // final notifC = Get.find<NotifC>();
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Color(0xFF345FB4),
@@ -29,20 +29,20 @@ class HomeV extends GetView<HomeC> {
           title: ProfileAppbar(
             user: profileC.auth.value.user,
           ),
-          actions: [
-            Obx(() {
-              return Container(
-                alignment: Alignment.center,
-                child: BadgeIconButton(
-                  icon: Icon(Icons.notifications),
-                  badgeCount: notifC.notif.value.length,
-                  onPressed: () {
-                    Get.toNamed(RouteName.notif);
-                  },
-                ),
-              );
-            })
-          ],
+          // actions: [
+          //   Obx(() {
+          //     return Container(
+          //       alignment: Alignment.center,
+          //       child: BadgeIconButton(
+          //         icon: Icon(Icons.notifications),
+          //         // badgeCount: notifC.notif.value.length,
+          //         onPressed: () {
+          //           Get.toNamed(RouteName.notif);
+          //         },
+          //       ),
+          //     );
+          //   })
+          // ],
         ),
         body: Obx(() {
           return RefreshIndicator(

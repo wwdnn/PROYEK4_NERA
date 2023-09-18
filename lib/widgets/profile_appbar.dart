@@ -20,7 +20,9 @@ class ProfileAppbar extends StatelessWidget {
           child: Container(
             width: 40,
             height: 40,
-            child: Image.network(
+            child: user.avatar == ''
+                ? Image.asset('assets/logo/Logo_HIMAKOM.png')
+                : Image.network(
               user.avatar,
               fit: BoxFit.cover,
             ),
